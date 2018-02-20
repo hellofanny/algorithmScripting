@@ -55,3 +55,29 @@ function dropElements(arr, func) {
 }
 
 dropElements([1, 2, 3], function (n) { return n < 3; });
+
+
+// -- Steamroller -- Flatten Array ---
+
+function steamrollArray(arr) {
+
+    resultedArray = [];
+
+    function flatten(args) {
+        if (!Array.isArray(args)) {
+            console.log(args)
+            resultedArray.push(args);
+        } else {
+            for (var i = 0; i < args.length; i++) {
+                flatten(args[i]);
+                console.log(args.length);
+            }
+        }
+    }
+
+    arr.forEach(flatten);
+
+    return resultedArray;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);

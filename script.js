@@ -112,5 +112,29 @@ function truthCheck(collection, pre) {
     }
     return true;
 }
-truthCheck([{"name": "Pete", "onBoat": true}, {"name": "Repeat", "onBoat": true, "alias": "Repete"}, {"name": "FastFoward", "onBoat": true}], "onBoat");
+truthCheck([{ "name": "Pete", "onBoat": true }, { "name": "Repeat", "onBoat": true, "alias": "Repete" }, { "name": "FastFoward", "onBoat": true }], "onBoat");
 
+
+// Optional arguments , trying closures 
+function addTogether() {
+
+    function add(x) {
+        return function (val) {
+            if (typeof val == "number") {
+                return x + val;
+            } else {
+                return undefined;
+            }
+        };
+    }
+
+    if (arguments.length == 1 && typeof arguments[0] == "number") {
+        return add(arguments[0]);
+    } else if (typeof arguments[0] == "number" && typeof arguments[1] == "number") {
+        return arguments[0] + arguments[1];
+    } else {
+        return undefined;
+    }
+} 
+addTogether(2)([3]) ;
+//need a better solution!!

@@ -98,3 +98,19 @@ function binaryAgent(str) {
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
 
+
+// --- Truthy values ---
+
+function truthCheck(collection, pre) {
+
+    for (var elem in collection) {
+        item = collection[elem];
+        if (item[pre] === false || item[pre] === 0 || item[pre] === "" || item[pre] === null ||
+            item[pre] === undefined || Number.isNaN(item[pre])) {
+            return false;
+        }
+    }
+    return true;
+}
+truthCheck([{"name": "Pete", "onBoat": true}, {"name": "Repeat", "onBoat": true, "alias": "Repete"}, {"name": "FastFoward", "onBoat": true}], "onBoat");
+
